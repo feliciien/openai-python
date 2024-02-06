@@ -342,7 +342,7 @@ class FineTune:
 
     @classmethod
     def _download_file_from_public_url(cls, url: str) -> Optional[bytes]:
-        resp = requests.get(url)
+        resp = requests.get(url, timeout=60)
         if resp.status_code == 200:
             return resp.content
         else:
